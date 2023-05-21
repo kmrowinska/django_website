@@ -1,0 +1,36 @@
+{% extends 'ex2/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Tools Reverse Sequence
+{% endblock%}
+
+{% block xyz %}
+    <link rel="stylesheet" type="text/css" href="{% static 'site/site.css' %}"/>
+{% endblock %}
+    
+{% block content %}
+    <style> 
+        ul.errorlist li {
+            color: #FF1493;
+        }
+    </style>
+
+
+    {% if results %}
+    <br>
+    <h3> Results: </h3>
+    <p> <strong>Original sequence:</strong> {{ seq }}</p>
+    <p> <strong>Reverse complement:</strong> {{ reverse_seq }}</p>
+{% else %}
+    <form method="post">
+        <br>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit" class="btn btn-primary">Send</button>  
+    </form>
+{% endif %}
+
+   
+{% endblock %}

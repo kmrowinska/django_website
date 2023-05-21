@@ -1,0 +1,20 @@
+{% extends 'ex2/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block xyz %}
+    <link rel="stylesheet" type="text/css" href="{% static 'site/site_look.css' %}"/>
+{% endblock %}
+
+{% block content %}
+   <h1> Home </h1>
+
+   <div style="display: flex; justify-content: center; align-items: center;">
+    <img src="{% static 'images/gif.gif' %}" style="width:370px;" />
+   </div>
+
+   
+{% endblock %}

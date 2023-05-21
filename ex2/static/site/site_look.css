@@ -1,0 +1,50 @@
+
+body {
+  background-color: #f7f0f8 !important;
+  font-family: "Georgia", "serif";
+}
+
+.button {
+  font-family: "inherit";
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c5aeca;
+  }
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: large; 
+    font-family: "Georgia", "serif";
+  }
+  
+.navbar a:hover {
+    background-color: rgb(221, 196, 224);
+    color: #fff;
+  }
+  
+.navbar-item {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;  
+    font-family: "Georgia", "serif";
+}
+
+.body-content {
+  background-color: #f7f0f8;
+  font-family: "Georgia", "serif";
+}
+
+h1 {
+  text-align: center;
+}
+
+
+
+  

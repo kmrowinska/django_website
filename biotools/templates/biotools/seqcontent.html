@@ -1,0 +1,53 @@
+{% extends 'ex2/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Tools Seqcontent
+{% endblock%}
+
+{% block xyz %}
+    <link rel="stylesheet" type="text/css" href="{% static 'site/site.css' %}"/>
+{% endblock %}
+    
+
+{% block content %}
+    <style> 
+        ul.errorlist li {
+            color: 	#FF1493;
+        }
+    </style>
+
+
+    {% if results %}
+    <br>
+    <h3> Results: </h3>
+    <p> <strong>Sequence length:</strong> {{seq_len}}</p>
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Sequence</th>
+                <th scope="col">Counts</th>
+                <th scope="col">Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in results.items %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ value.count }}</td>
+                    <td>{{ value.percent|floatformat:2 }}%</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <form method="post">
+            <br>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <button type="submit" class="btn btn-primary">Calculate</button>  
+        </form>
+    {% endif %}
+
+{% endblock %}

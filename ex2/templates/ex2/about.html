@@ -1,0 +1,29 @@
+{% extends 'ex2/layout.html' %}
+{% load static %}
+
+{% block title %}
+    About
+{% endblock %}
+    
+{% block xyz %}
+    <link rel="stylesheet" type="text/css" href="{% static 'site/site_look.css' %}"/>
+{% endblock %}
+    
+{% block content %}
+    <h1> About </h1>
+    <p> Lucky number is: {{ lucky_number }}</p>
+    <p> Unlucky number is: {{ unlucky_number }}</p>
+    {% if lucky_number ==  unlucky_number %} 
+        <p> Don’t worry, be happy! </p>
+    {% endif %}
+
+    <ul>
+        {% for item in lang %}
+            <li> 
+                <a href={{ item.url }}>{{ item.name }}</a> {{ item.level }}
+            </li>
+        {% endfor %}
+    </ul>
+       
+{% endblock %}
+    

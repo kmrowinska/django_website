@@ -1,0 +1,12 @@
+<h1>Blog </h1>
+    <a href="{% url 'blog:post_list_view' %}">All</a> |
+    {% for c in category_list %}
+        {% if category_name == c.name %}
+           {{c.name}}
+        {% else %}
+            <a href="{% url 'blog:post_list_category' c.name %}"> {{ c.name }}</a>
+        {% endif %} |   
+    {% endfor %}
+
+
+    <br><br>

@@ -1,0 +1,25 @@
+{% extends 'ex2/layout.html' %}
+{% load new_markdown %}
+{% load static %}
+
+{% block title %}
+    BLOG
+{% endblock%}
+
+{% block xyz %}
+    <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}"/>
+{% endblock %}
+
+{% block content %}
+    {% include 'blog/includes/cat_widget.html' %}
+
+    <div class="post-detail">
+        <h2>{{ object.title }}</h2>
+        <p class="post-author"><strong>By: </strong>{{ object.author }}</p> 
+        <p class="post-category"><strong>Category: </strong>{{ object.category }}</p>
+        <p>{{ object.body|markdown|safe }}</p>
+        <p class="post-date">{{ object.date_publish|timesince }}</p>
+        <a href="{% url 'blog:post_authors_view' object.author.id %}">See all posts by {{ object.author }}</a> 
+    </div>
+{% endblock %}
+

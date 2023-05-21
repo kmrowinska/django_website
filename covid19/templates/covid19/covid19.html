@@ -1,0 +1,31 @@
+{% extends 'ex2/layout.html' %}
+{% load static %}
+
+{% block title %}
+    COVID-19
+{% endblock%}
+
+{% block xyz %}
+    <link rel="stylesheet" type="text/css" href="{% static 'site/base.css' %}"/>
+{% endblock %}
+
+{% block content %}
+    <h1> COVID-19 NEWS </h1>
+    <ul>
+        <h2>Global</h2>
+        <li><strong>Infected:</strong>{{context.Global.TotalConfirmed}}</li>
+        <li><strong>Dead:</strong>{{context.Global.TotalDeaths}}</li>
+        <li><strong>Date:</strong>{{context.Global.Date}}</li>
+      </ul>
+      
+      <ul>
+        {% for country in context.Countries %}
+            {% if country.CountryCode == code %}
+                <h2>{{country.Country}}</h2>
+                <li><strong>Infected:</strong>{{country.TotalConfirmed}}</li>
+                <li><strong>Dead:</strong>{{country.TotalDeaths}}</li>
+                <li><strong>Date:</strong> {{country.Date}}</li>
+            {% endif %}
+        {% endfor %}
+      </ul>
+{% endblock%}

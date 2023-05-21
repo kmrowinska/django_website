@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'site/site_look.css' %}" />
+    {% block xyz %}
+    {% endblock %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+<nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/corgi.png'%}" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+          </a>
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}" class="navbar-item"> Home  </a>  
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}" class="navbar-item"> About  </a> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}" class="navbar-item"> Contact  </a> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'covid19:COVID-19' %}" class="navbar-item"> COVID-19  </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog:post_list_view' %}" class="navbar-item"> Blog  </a>
+            </li>
+            <li class="nav-item">
+                <li class="nav-item dropdown">
+                    <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Tools
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-light">
+                      <li><a class="dropdown-item" href="{% url 'biotools:seqcontent' %}">Seqcontent</a></li>
+                      <li><a class="dropdown-item" href="{% url 'biotools:revcomp' %}">Reverse Sequence</a></li>
+                    </ul>
+                  </li>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="body-content">
+    {% block content %}
+    {% endblock %}
+    <hr/>
+    <footer>
+        <p>&copy; 2023</p>
+    </footer>
+</div>
+
+</body>
+</html>
